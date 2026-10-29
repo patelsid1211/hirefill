@@ -365,7 +365,7 @@
   btns.forEach((b) => b.addEventListener("click", () => { apply(b.dataset.t); try { localStorage.setItem("hf-theme", b.dataset.t); } catch (e) {} }));
 })();
 // Set this to your Chrome Web Store listing once it is approved.
-const STORE_URL = "";
+const STORE_URL = "https://chromewebstore.google.com/detail/belomdmgeahhcldcjoibpihdiceffojl";
 document.querySelectorAll(".install").forEach((a) => { if (STORE_URL) { a.href = STORE_URL; a.target = "_blank"; a.rel = "noopener"; } else { a.href = "#how"; } });
 
 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
