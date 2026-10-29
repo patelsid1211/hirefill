@@ -272,7 +272,7 @@
   <ol class="steps">
     <li><h3>Turn your resume into a profile</h3><p>Copy our prompt into ChatGPT, Claude or Gemini with your resume, then paste the answer back. Or type it in yourself.</p></li>
     <li><h3>Open any job application</h3><p>On Workday, Greenhouse, Lever or almost any company's career site.</p></li>
-    <li><h3>Press <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>F</kbd></h3><p>Every field HireFill fills is highlighted. Check them, then click Submit yourself.</p></li>
+    <li><h3>Press <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>F</kbd></h3><p>On a Mac, press <kbd>⌥ Option</kbd> <kbd>Shift</kbd> <kbd>F</kbd>. Every field HireFill fills is highlighted. Check them, then click Submit yourself.</p></li>
   </ol>
 
   <div class="feature">
@@ -364,6 +364,12 @@
   apply(saved);
   btns.forEach((b) => b.addEventListener("click", () => { apply(b.dataset.t); try { localStorage.setItem("hf-theme", b.dataset.t); } catch (e) {} }));
 })();
+// Show Mac key names on Macs (Chrome maps the extension's Alt to Option there).
+if (/Mac/i.test(navigator.platform) || /Mac OS X/.test(navigator.userAgent)) {
+  const ks = document.querySelectorAll(".keys .key");
+  if (ks[0]) ks[0].textContent = "\u2325 Option";
+  if (ks[1]) ks[1].textContent = "\u21E7 Shift";
+}
 // Set this to your Chrome Web Store listing once it is approved.
 const STORE_URL = "https://chromewebstore.google.com/detail/belomdmgeahhcldcjoibpihdiceffojl";
 document.querySelectorAll(".install").forEach((a) => { if (STORE_URL) { a.href = STORE_URL; a.target = "_blank"; a.rel = "noopener"; } else { a.href = "#how"; } });
